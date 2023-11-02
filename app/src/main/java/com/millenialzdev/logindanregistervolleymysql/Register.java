@@ -33,12 +33,12 @@ public class Register extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         etAlamat = findViewById(R.id.etAlamat);
-        btnRegister = findViewById(R.id.btnRegister);
+        btnRegister = findViewById(R.id.btnRegister); 
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                // kadang isi dari textfield berupa object
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 String alamat = etAlamat.getText().toString();
