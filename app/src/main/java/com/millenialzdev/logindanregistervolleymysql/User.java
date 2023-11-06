@@ -10,13 +10,6 @@ public class User {
     public User() {
     }
 
-    public String getRule() {
-        return rule;
-    }
-
-    public void setRule(String rule) {
-        this.rule = rule;
-    }
 
     public int getUser_id() {
         return user_id;

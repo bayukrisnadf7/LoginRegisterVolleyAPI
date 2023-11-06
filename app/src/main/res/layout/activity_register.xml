@@ -19,10 +19,17 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
         app:cardCornerRadius="15dp"
         android:elevation="10dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,6 +72,109 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+            <Spinner
+                android:id="@+id/etJenis_kelamin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/baseline_supervised_user_circle_24"
+                android:drawablePadding="10dp"
+                android:inputType="textPassword"
+                android:hint="jenis kelamin" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Lahir"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+            <EditText
+                android:id="@+id/etTanggal_lahir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="enter date"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/baseline_date_range_24"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Ayah"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+
+            <EditText
+                android:id="@+id/etNama_ayah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/baseline_add_home_24"
+                android:drawablePadding="10dp"
+                android:hint="nama ayah" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Ibu"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/etNama_ibu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/baseline_add_home_24"
+                android:drawablePadding="10dp"
+                android:hint="nama ibu" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No Telepon"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/etNo_telepon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/baseline_add_home_24"
+                android:drawablePadding="10dp"
+                android:hint="no telepon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Berat Badan"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/etBerat_badan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/baseline_add_home_24"
+                android:drawablePadding="10dp"
+                android:hint="berat badan" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tinggi Badan"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/etTinggi_badan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/baseline_add_home_24"
+                android:drawablePadding="10dp"
+                android:hint="tinggi badan" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Alamat"
                 android:textStyle="bold"
                 android:textSize="20sp"/>
@@ -77,6 +187,8 @@
                 android:drawablePadding="10dp"
                 android:hint="alamat" />
 
+
+
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
@@ -84,9 +196,12 @@
                 android:text="REGISTER"
                 android:backgroundTint="#4CAF50"
                 android:layout_margin="20dp"
+                android:layout_gravity="bottom"
                 />
 
         </LinearLayout>
+
+        </ScrollView>
 
     </androidx.cardview.widget.CardView>
 

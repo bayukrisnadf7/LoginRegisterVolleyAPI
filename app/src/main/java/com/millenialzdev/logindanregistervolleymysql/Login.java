@@ -57,7 +57,7 @@ public class Login extends AppCompatActivity {
                             if (response != null) {
                                 UserResponse userResponse = gson.fromJson(response.toString(), UserResponse.class);
                                 if (userResponse.getCode() == 200) {
-                                    Toast.makeText(getApplicationContext(), "nama nya : "+userResponse.getUser_list().get(0).getRule(), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "nama nya : "+userResponse.getUser_list().get(0).getUsername(), Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                 }
 
