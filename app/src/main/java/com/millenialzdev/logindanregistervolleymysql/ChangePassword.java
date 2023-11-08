@@ -17,8 +17,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class ChangePassword extends AppCompatActivity {
     private EditText etuUsername, etuPassword;
@@ -35,15 +37,31 @@ public class ChangePassword extends AppCompatActivity {
 
         btn_changePassword.setOnClickListener(new View.OnClickListener() {
 
-            String username = etuUsername.getText().toString();
-            String password = etuPassword.getText().toString();
+
             @Override
             public void onClick(View view) {
-                if (!(username.isEmpty() || password.isEmpty())){
+
+                String username = etuUsername.getText().toString();
+                String password = etuPassword.getText().toString();
+                Gson gson = new Gson();
+
+                if (! (username.isEmpty() || password.isEmpty())){
+
 
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, Db_Contract.urlUpdate, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            if (response != null) {
+                                UserResponse userResponse = gson.fromJson(response.toString(), UserResponse.class);
+                                if (userResponse.getCode() == 200) {
+
+                                    Toast.makeText(getApplicationContext(), "Password berhasil diubah : "+userResponse.getStatus(), Toast.LENGTH_LONG).show();
+
+                                    startActivity(new Intent(getApplicationContext(), Login.class));
+                                }else{
+                                    Toast.makeText(getApplicationContext(), "Ubah password gagal"+userResponse.getStatus(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
 
                             Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
 

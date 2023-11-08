@@ -18,15 +18,17 @@
         <activity
             android:name=".UserLoginView"
             android:exported="false" />
-        <activity
-            android:name=".activity_list_user"
-            android:exported="false" />
-        <activity
-            android:name=".activity_user"
-            android:exported="false" />
-        <activity
-            android:name=".user_db"
-            android:exported="false" />
+        <activity android:name=".ChangePassword"
+            android:exported="false"/>
+<!--        <activity-->
+<!--            android:name=".activity_list_user"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".activity_user"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".user_db"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".Register"
             android:exported="false" />
