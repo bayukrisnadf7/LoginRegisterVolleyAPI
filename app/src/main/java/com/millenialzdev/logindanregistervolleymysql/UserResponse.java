@@ -30,4 +30,5 @@ public class UserResponse {
     public void setUser_list(List<User> user_list) {
         this.user_list = user_list;
     }
+
 }

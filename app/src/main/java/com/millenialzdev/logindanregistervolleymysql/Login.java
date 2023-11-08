@@ -1,5 +1,9 @@
 package com.millenialzdev.logindanregistervolleymysql;
 
+import static android.app.PendingIntent.getActivity;
+
+import static java.security.AccessController.getContext;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +20,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+
+import java.util.List;
 
 public class Login extends AppCompatActivity {
 
@@ -57,6 +63,11 @@ public class Login extends AppCompatActivity {
                             if (response != null) {
                                 UserResponse userResponse = gson.fromJson(response.toString(), UserResponse.class);
                                 if (userResponse.getCode() == 200) {
+//                                    List<User> userList = userResponse.getUser_list();
+//                                    User user = userList.get(0);
+//                                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+//                                    intent.putExtra("username", user.getUsername());
+//                                    startActivity(intent);
                                     Toast.makeText(getApplicationContext(), "nama nya : "+userResponse.getUser_list().get(0).getUsername(), Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                 }
@@ -81,5 +92,13 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+
     }
+        private void login(User user) {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("username", user.getUsername());
+            startActivity(intent);
+
+            Toast.makeText(this, "Berhasil Login sebagai " + user.getUsername(), Toast.LENGTH_SHORT).show();
+        }
 }
