@@ -51,6 +51,7 @@ public class Login extends AppCompatActivity {
 
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
+
                 Gson gson = new Gson();
 
                 if (! (username.isEmpty() || password.isEmpty())){
@@ -63,22 +64,19 @@ public class Login extends AppCompatActivity {
                             if (response != null) {
                                 UserResponse userResponse = gson.fromJson(response.toString(), UserResponse.class);
                                 if (userResponse.getCode() == 200) {
-//                                    List<User> userList = userResponse.getUser_list();
-//                                    User user = userList.get(0);
-//                                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-//                                    intent.putExtra("username", user.getUsername());
-//                                    startActivity(intent);
-                                    Toast.makeText(getApplicationContext(), "nama nya : "+userResponse.getUser_list().get(0).getUsername(), Toast.LENGTH_LONG).show();
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    List<User> userList = userResponse.getUser_list();
+                                    User user = userList.get(0);
+                                    Intent intent = new Intent(getApplicationContext(),UserLoginView.class);
+                                    intent.putExtra("username", user.getUsername());
+                                    intent.putExtra("password",user.getPassword());
+                                    intent.putExtra("telepon", user.getNo_telepon());
+                                    Toast.makeText(getApplicationContext(), "User : "+username, Toast.LENGTH_LONG).show();
+                                    startActivity(intent);
+                                }else{
+                                    Toast.makeText(getApplicationContext(), "Login Gagal"+userResponse.getStatus(), Toast.LENGTH_SHORT).show();
                                 }
-
                             }
-//                            if (response.equals("Welcome")){
-//                                Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
-//                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//                            }else{
-//                                Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show();
-//                            }
+
                         }
                     }, new Response.ErrorListener() {
                         @Override

@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".UserLoginView"
+            android:exported="false" />
+        <activity
             android:name=".activity_list_user"
             android:exported="false" />
         <activity
