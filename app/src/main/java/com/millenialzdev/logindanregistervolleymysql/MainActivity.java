@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                             if (userResponse.getCode() == 200) {
                                 UserAdapter adapter = new UserAdapter(getApplicationContext(), userResponse.getUser_list());
                                 listView.setAdapter(adapter);
-                                Toast.makeText(getApplicationContext(), "Status : "+userResponse.getCode(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Status : "+userResponse.getStatus(), Toast.LENGTH_LONG).show();
                                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
